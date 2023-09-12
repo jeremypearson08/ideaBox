@@ -1,17 +1,35 @@
 //DOM Elements
 var saveButton = document.querySelector(".save-button");
 var titleInput = document.querySelector("#title");
-var bodyInput = docutment.querySelector("#body");
+var bodyInput = document.querySelector("#body");
 
 //Event Listeners
-saveButton.addEventListener("click", )
+saveButton.addEventListener("click", saveIdea);
 
-ideas = []
-title = [];
-body = [];
+var ideas = [];
 
 //Functions
-function () {
-    if 
+function createNewIdea (title, body) {
+    var newIdea = {
+        title: title, 
+        body: body,
+        id: Date.now()
+    };
+    return newIdea;
+} 
+
+function saveIdea (e) {
+    e.preventDefault()
+    var title = titleInput.value;
+    var body = bodyInput.value;
+    var newObject = createNewIdea(title, body);
+    ideas.push(newObject);
+
+    titleInput.value = "";
+    bodyInput.value = "";
 }
+
+//function displayIdeas () {
+
+//}
 
