@@ -69,12 +69,16 @@ aside {
     
 }
 .add-new {
-    color: #EAEAF4;
+    color: #1F1F3C;
     font-size: 2.5rem;
     width: 75%;
     height: 4.5rem;
     margin-left: 10.9rem;
-    background-color: #1F1F3C;
+    background-color: #a4a4c0;
+}
+
+.add-new:hover {
+    cursor: not-allowed;
 }
 
 .section-bottom {
@@ -118,11 +122,13 @@ aside {
     height: 10rem;
 }
 
+
 .ideaContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
     padding: 20px;
+    justify-items: center;
   }
 
 
