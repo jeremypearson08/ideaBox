@@ -1,3 +1,8 @@
+/* Dark Purple: #1F1F3C
+Medium Purple: #A8AAD2
+Light Purple: #EAEAF4
+White: #FFFFFF */
+
 * { 
     margin: 0;
     padding: 0;
@@ -142,8 +147,15 @@ aside {
     justify-items: center;
   }
 
-
-/* Dark Purple: #1F1F3C
-Medium Purple: #A8AAD2
-Light Purple: #EAEAF4
-White: #FFFFFF */
+  .favorited .star-icon {
+    fill: rgba(255, 115, 0, 0.955);
+    width: 25px;
+    height: 25px;
+    margin-right: auto;
+}
+.star-icon {
+    fill: white;
+    width: 25px;
+    height: 25px;
+    margin-right: auto;
+}
