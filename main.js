@@ -64,6 +64,7 @@ function createIdeaCard(idea) {
       </div>
       <p>${idea.title}</p>
       <p>${idea.body}</p>`
+    ideaContainer.appendChild(ideaDiv) 
     }
 
   function buttonDisabledState() {
