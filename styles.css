@@ -18,12 +18,13 @@ main {
 h1 {
     font-size: 3.2em;
     font-weight: 1000;
-    color: #FFFFFF;
+    color: #EAEAF4;
     margin-top: 1rem;
+    font-weight: bold
 }
 aside {
     float: left;
-    width: 30%;
+    width: 20%;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -57,6 +58,7 @@ aside {
 .title-label, .body-label {
     font-size: 2rem;
     margin-top: 2rem;
+    font-weight: normal;
 }
 
 #body {
@@ -97,12 +99,13 @@ aside {
  }
 
  .idea-box {
+    font-size: 20px;
     overflow-y: auto;
     border: 2px solid #1F1F3C;
     margin: 10px 0;
     background-color: #FFFFFF;
-    width: 10rem;
-    height: 10rem;
+    width: 13rem;
+    height: 15rem;
 }
 
 .ideaContainer {
@@ -142,6 +145,36 @@ aside {
     justify-items: center;
   }
 
+  .favorited .star-icon {
+    fill: rgba(255, 115, 0, 0.955);
+    width: 25px;
+    height: 25px;
+    margin-right: auto;
+}
+.star-icon {
+    fill: white;
+    width: 25px;
+    height: 25px;
+    margin-right: auto;
+}
+
+.idea-title {
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Poppins-Regular'; 
+    src: url('font-assets/Poppins/Poppins-Black.ttf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins-Bold'; 
+    src: url('font-assets/Poppins/Poppins-Bold.ttf') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
 
 /* Dark Purple: #1F1F3C
 Medium Purple: #A8AAD2
