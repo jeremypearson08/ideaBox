@@ -75,16 +75,17 @@ aside {
     margin: 1rem;
     
 }
-.add-new {
+.add-new-button {
     color: #1F1F3C;
     font-size: 2.5rem;
     width: 75%;
     height: 4.5rem;
     margin-left: 10.9rem;
+    cursor: p;
     background-color: #a4a4c0;
 }
 
-.add-new:hover {
+.add-new-button:hover {
     cursor: not-allowed;
 }
 
@@ -101,11 +102,15 @@ aside {
     border: 2px solid #1F1F3C;
     margin: 10px 0;
     background-color: #FFFFFF;
-    width: 13rem;
-    height: 15rem;
+    width: 20rem;
+    height: 22rem;
 }
 
-.ideaContainer {
+.idea-box p {
+    padding: 10px; 
+}
+
+.idea-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
@@ -130,10 +135,6 @@ aside {
     cursor: pointer;
 }
 
-.idea-box p {
-    padding: 10px; 
-}
-
 .ideaContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -148,24 +149,28 @@ aside {
     height: 25px;
     margin-right: auto;
 }
+
 .star-icon {
     fill: white;
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     margin-right: auto;
+}
+
+.star-icon:hover {
+    cursor: pointer;
 }
   .favorited .star-icon {
     fill: rgba(255, 115, 0, 0.955);
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     margin-right: auto;
 }
-.star-icon {
-    fill: white;
-    width: 25px;
-    height: 25px;
-    margin-right: auto;
+
+.favorited .star-icon:hover {
+    cursor: pointer;
 }
+
 
 .idea-title {
     font-weight: bold;
