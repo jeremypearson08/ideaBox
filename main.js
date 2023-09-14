@@ -53,13 +53,16 @@ function saveIdea (e) {
 function createIdeaCard(idea) {
     var ideaDiv = document.createElement('div');
     ideaDiv.className = 'idea-card';
-      ideaDiv.innerHTML = `
-      <div class='idea-box'>
+    ideaDiv.innerHTML = `
+    <div class="idea-box">
+      <div class="idea-header">
+        <button class="close-btn">X</button>
+      </div>
       <p>${idea.title}</p>
       <p>${idea.body}</p>
-    `;
+  `;
     ideaContainer.appendChild(ideaDiv);
-  }
+}
 
   function buttonDisabledState() {
     addNewIdea.setAttribute('disabled', true);

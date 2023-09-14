@@ -96,32 +96,43 @@ aside {
     margin: 2rem;
  }
 
-#box2 {
-    padding: 5.5rem;
-    border: solid 3.2px #1F1F3C;
-    display: inline-block; 
-    background-color: #FFFFFF;
-    margin: 2rem;
-}
-
-#box3 {
-    padding: 5.5rem;
-    display: inline-block;     
-    border: solid 3px #1F1F3C;
-    background-color: #FFFFFF;
-    margin: 2rem;
-}
-
-.idea-box {
+ .idea-box {
+    overflow-y: auto;
     border: 2px solid #1F1F3C;
-    padding: 10px;
     margin: 10px 0;
-    border-radius: 5px;
     background-color: #FFFFFF;
     width: 10rem;
     height: 10rem;
 }
 
+.ideaContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+.idea-header {
+    background-color: #1F1F3C;
+    color: white;  
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; 
+    padding: 10px;
+}
+
+.close-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.idea-box p {
+    padding: 10px; 
+}
 
 .ideaContainer {
     display: grid;
