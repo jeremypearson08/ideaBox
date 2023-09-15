@@ -50,9 +50,11 @@ function saveIdea (e) {
     bodyInput.value = "";
     buttonDisabledState();
 }
-function createIdeaCard(idea) {
+
+  function createIdeaCard(idea) {
     var ideaDiv = document.createElement('div');
     ideaDiv.className = 'idea-card';
+    ideaDiv.dataset.ideaId = idea.id; 
     ideaDiv.innerHTML = `
     <div class="idea-box">
       <div class="idea-header">
@@ -60,16 +62,27 @@ function createIdeaCard(idea) {
             <path d="M3.488 13.184l6.272 6.112-1.472 8.608 7.712-4.064 7.712 4.064-1.472-8.608 6.272-6.112-8.64-1.248-3.872-7.808-3.872 7.808z"/>
         </svg>
         <button class="close-btn">&#9587;</button>
-        </div>
-        <p class="idea-title">${idea.title}</p>
-        <p>${idea.body}</p>
+      </div>
+      <p class="idea-title">${idea.title}</p>
+      <p>${idea.body}</p>
     `;
-      ideaContainer.appendChild(ideaDiv);
+    
+    ideaContainer.appendChild(ideaDiv);
+
+    var closeButton = ideaDiv.querySelector('.close-btn'); 
+    closeButton.addEventListener('click', function() {
+        var ideaId = ideaDiv.dataset.ideaId; 
+        deleteIdea(ideaId);
+        ideaDiv.remove(); 
+    }); 
 }
 
-  function buttonDisabledState() {
-    addNewIdea.setAttribute('disabled', true);
-    addNewIdea.style.color = '#1F1F3C';
-    addNewIdea.style.backgroundColor = '#a4a4c0';
-    addNewIdea.style.cursor = 'not-allowed';
-  }
+function deleteIdea(ideaId) {
+    var indexToDelete = ideas.findIndex(function(idea) {
+        return idea.id === ideaId;
+    });
+
+    if (indexToDelete !== -1) {
+        ideas.splice(indexToDelete, 1); 
+    }
+}
