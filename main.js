@@ -66,7 +66,6 @@ function saveIdea (e) {
       <p class="idea-title">${idea.title}</p>
       <p>${idea.body}</p>
     `;
-    
     ideaContainer.appendChild(ideaDiv);
 
     var closeButton = ideaDiv.querySelector('.close-btn'); 
