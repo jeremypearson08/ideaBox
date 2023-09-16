@@ -4,8 +4,8 @@
     var favView = false;
 
 //DOM Elements
-    var titleInput = document.querySelector("#title");
-    var bodyInput = document.querySelector("#body");
+    var titleInput = document.querySelector('#title');
+    var bodyInput = document.querySelector('#body');
     var addNewIdea = document.querySelector('.add-new-button');
     var ideaContainer = document.querySelector('.idea-container');
     var form = document.querySelector('.form-top');
@@ -29,6 +29,7 @@
             isStarred: false
         };
     }
+
     function createIdeaCard(e) {
         e.preventDefault();
         currentCard = createIdea(titleInput.value, bodyInput.value);
@@ -37,6 +38,7 @@
         formValueReset();
         buttonDisabledState();  
     }
+
     function displayCards(ideas) {
         ideaContainer.innerHTML = '';
         ideas.forEach(function(idea) {
@@ -52,6 +54,7 @@
             </article>`;
         });
     }
+
     function cardInteractions(e) {
       var targetElement = e.target;
       if (targetElement.tagName.toLowerCase() === 'path') {
@@ -63,6 +66,7 @@
           toggleStar(e);
       }
     }
+
     function deleteCard(e) {
         var clickedBtn = e.target;
         var ideaCard = clickedBtn.closest('.idea-card');
@@ -74,6 +78,7 @@
             }
         }
     }
+
     function toggleStar(e) {
       var clickedStar = e.target;
       var ideaCard = clickedStar.closest('.idea-card');
@@ -89,18 +94,15 @@
           displayCards(ideas);
       }
     }
+
     function buttonEnabledState() {
-        addNewIdea.removeAttribute('disabled');
-        addNewIdea.style.color = '#EAEAF4';
-        addNewIdea.style.backgroundColor = '#1F1F3C';
-        addNewIdea.style.cursor = 'pointer';
+        addNewIdea.removeAttribute('disabled', false);
     }
+
     function buttonDisabledState() {
         addNewIdea.setAttribute('disabled', true);
-        addNewIdea.style.color = '#1F1F3C';
-        addNewIdea.style.backgroundColor = '#A4A4C0';
-        addNewIdea.style.cursor = 'not-allowed';
     }
+
     function formValueReset() {
         titleInput.value = '';
         bodyInput.value = '';
@@ -117,6 +119,7 @@
     }
 
     function toggleIdeasContainer() {
+      ideaContainer.innerHTML = '';
       if (favView) {
         var favIdeas = [];
         for (let i = 0; i < ideas.length; i++) {
