@@ -1,18 +1,24 @@
 //Global Variables
     var currentCard;
     var ideas = [];
+    var favView = false;
 
 //DOM Elements
-    var titleInput = document.querySelector("#title");
-    var bodyInput = document.querySelector("#body");
+    var titleInput = document.querySelector('#title');
+    var bodyInput = document.querySelector('#body');
     var addNewIdea = document.querySelector('.add-new-button');
     var ideaContainer = document.querySelector('.idea-container');
     var form = document.querySelector('.form-top');
+    var favoritesButton = document.querySelector('.favorites-button');
 
 //EventListeners
     form.addEventListener('input', buttonEnabledState);
     addNewIdea.addEventListener('click', createIdeaCard);
     ideaContainer.addEventListener('click', cardInteractions);
+    favoritesButton.addEventListener('click', function() {
+      toggleFavButtonView();
+      toggleIdeasContainer();
+    })
 
 //Functions
     function createIdea(title, body) {
@@ -23,15 +29,17 @@
             isStarred: false
         };
     }
+
     function createIdeaCard(e) {
         e.preventDefault();
         currentCard = createIdea(titleInput.value, bodyInput.value);
         ideas.push(currentCard);
-        displayCards();
+        displayCards(ideas);
         formValueReset();
-        buttonDisabledState();
+        buttonDisabledState();  
     }
-    function displayCards() {
+
+    function displayCards(ideas) {
         ideaContainer.innerHTML = '';
         ideas.forEach(function(idea) {
             ideaContainer.innerHTML += `<article class="idea-card">
@@ -46,6 +54,7 @@
             </article>`;
         });
     }
+
     function cardInteractions(e) {
       var targetElement = e.target;
       if (targetElement.tagName.toLowerCase() === 'path') {
@@ -57,6 +66,7 @@
           toggleStar(e);
       }
     }
+
     function deleteCard(e) {
         var clickedBtn = e.target;
         var ideaCard = clickedBtn.closest('.idea-card');
@@ -64,10 +74,11 @@
             var cardIndex = Array.from(ideaContainer.children).indexOf(ideaCard);
             if (cardIndex !== -1) {
                 ideas.splice(cardIndex, 1);
-                displayCards();
+                displayCards(ideas);
             }
         }
     }
+
     function toggleStar(e) {
       var clickedStar = e.target;
       var ideaCard = clickedStar.closest('.idea-card');
@@ -80,22 +91,44 @@
               ideas[cardIndex].isStarred = true;
               clickedStar.classList.add('favorited');
           }
-          displayCards();
+          displayCards(ideas);
       }
     }
+
     function buttonEnabledState() {
-        addNewIdea.removeAttribute('disabled');
-        addNewIdea.style.color = '#EAEAF4';
-        addNewIdea.style.backgroundColor = '#1F1F3C';
-        addNewIdea.style.cursor = 'pointer';
+        addNewIdea.removeAttribute('disabled', false);
     }
+
     function buttonDisabledState() {
         addNewIdea.setAttribute('disabled', true);
-        addNewIdea.style.color = '#1F1F3C';
-        addNewIdea.style.backgroundColor = '#A4A4C0';
-        addNewIdea.style.cursor = 'not-allowed';
     }
+
     function formValueReset() {
         titleInput.value = '';
         bodyInput.value = '';
+    }
+
+    function toggleFavButtonView() {
+      if (favView) {
+        favView = false;
+        favoritesButton.innerText = 'Show Starred Ideas';
+      } else {
+        favView = true;
+        favoritesButton.innerText = 'Show All Ideas';
+      }
+    }
+
+    function toggleIdeasContainer() {
+      ideaContainer.innerHTML = '';
+      if (favView) {
+        var favIdeas = [];
+        for (let i = 0; i < ideas.length; i++) {
+          if (ideas[i].isStarred) {
+            favIdeas.push(ideas[i]);
+          }
+        }
+        displayCards(favIdeas);
+      } else {
+        displayCards(ideas);
+    }
     }

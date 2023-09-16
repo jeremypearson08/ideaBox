@@ -34,6 +34,10 @@ aside {
     align-items: center;
     background-color: #1F1F3C;
 }
+main {
+    width: 100%;
+    flex-direction: column;
+}
 .favorites-button {
     margin-top: 20px;
     padding: 20px 10px;
@@ -44,10 +48,6 @@ aside {
     text-align: center;
     font-size: 1.3rem;
     font-weight: 600;
-}
-main {
-    width: 100%;
-    flex-direction: column;
 }
 .form-top {
     font-size: 1.2rem;
@@ -100,8 +100,10 @@ main {
     height: 4rem;
     font-weight: 600;
 }
-.add-new-button:hover {
+.add-new-button:disabled {
+    color: #1F1F3C;
     cursor: not-allowed;
+    background-color: #A4A4C0;
 }
 .section-bottom {
     width: 100%;
