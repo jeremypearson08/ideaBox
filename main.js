@@ -10,6 +10,7 @@ var addNewIdea = document.querySelector('.add-new-button');
 var ideaContainer = document.querySelector('.idea-container');
 var form = document.querySelector('.form-top');
 var closeButton = document.querySelector('.close-btn');
+var starredIdeaButton = document.querySelector('.favorites-button');
 
 //Event Listeners
 form.addEventListener('input', buttonEnabledState);
