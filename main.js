@@ -16,6 +16,7 @@ var starredIdeaButton = document.querySelector('.favorites-button');
 form.addEventListener('input', buttonEnabledState);
 addNewIdea.addEventListener('click', createIdeaCard); 
 ideaContainer.addEventListener('click', deleteCard);
+
 //Global Variables
 var ideas = [];
 var starredIdeas = [];
@@ -113,7 +114,8 @@ function createIdea (title, body) {
   var newIdea = {
     title: title,
     body: body,
-    id: Date.now()
+    id: Date.now(),
+    isStarred: false
   };
   return newIdea;
 }
