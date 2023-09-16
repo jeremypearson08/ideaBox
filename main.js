@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', function(event) {
+
 //DOM Elements
 var saveButton = document.querySelector(".save-button");
 var titleInput = document.querySelector("#title");
@@ -127,16 +129,35 @@ function createIdeaCard(e) {
 function displayCards() {
   ideaContainer.innerHTML = '';
   for (let i = 0; i < ideas.length; i++) {
-  ideaContainer.innerHTML += `<article class="idea-card">
-    <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 5 27 24">
-      <path d="M3.488 13.184l6.272 6.112-1.472 8.608 7.712-4.064 7.712 4.064-1.472-8.608 6.272-6.112-8.64-1.248-3.872-7.808-3.872 7.808z"/>
-    </svg>
-    <button class="close-btn">&#9587;</button>
-    <p class="idea-title">${ideas[i].title}</p>
-    <p>${ideas[i].body}</p>
-    </article>`;
+      ideaContainer.innerHTML += `<article class="idea-card">
+      <div class="idea-header">
+          <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 5 27 24">
+              <path d="M3.488 13.184l6.272 6.112-1.472 8.608 7.712-4.064 7.712 4.064-1.472-8.608 6.272-6.112-8.64-1.248-3.872-7.808-3.872 7.808z"/>
+          </svg>
+          <button class="close-btn">&#9587;</button>
+      </div>
+      <p class="idea-title">${ideas[i].title}</p>
+      <p>${ideas[i].body}</p>
+      </article>`;
   }
 }
+
+//function createIdeaCard(idea) {
+//     var ideaDiv = document.createElement('article');
+//     ideaDiv.className = 'idea-card';
+//     ideaDiv.innerHTML = `
+//     <div class="idea-box">
+//       <div class="idea-header">
+//         <svg class="star-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 5 27 24">
+//             <path d="M3.488 13.184l6.272 6.112-1.472 8.608 7.712-4.064 7.712 4.064-1.472-8.608 6.272-6.112-8.64-1.248-3.872-7.808-3.872 7.808z"/>
+//         </svg>
+//         <button class="close-btn">&#9587;</button>
+//       </div>
+//       <p class="idea-title">${idea.title}</p>
+//       <p>${idea.body}</p>
+//     `;
+//     ideaContainer.appendChild(ideaDiv);
+// }
 
 function deleteCard(e) {
   if (e.target.className === 'close-btn') {
@@ -170,4 +191,5 @@ function formValueReset() {
   titleInput.value = '';
   bodyInput.value = '';
 }
-  
+
+});
