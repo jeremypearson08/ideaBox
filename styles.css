@@ -3,61 +3,52 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 @font-face {
-    font-family: 'Poppins-Regular'; 
+    font-family: 'Poppins-Regular';
     src: url('font-assets/Poppins/Poppins-Black.ttf') format('woff');
     font-weight: normal;
     font-style: normal;
 }
-
 @font-face {
-    font-family: 'Poppins-Bold'; 
+    font-family: 'Poppins-Bold';
     src: url('font-assets/Poppins/Poppins-Bold.ttf') format('woff');
     font-weight: bold;
     font-style: normal;
 }
-
 body {
     font-family: 'Poppins', sans-serif;
     display: flex;
 }
-
 h1 {
     font-size: 3.2em;
     font-weight: 900;
     color: #EAEAF4;
     margin-top: 1rem;
 }
-
 aside {
     width: 20%;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: start; 
-    align-items: center; 
+    justify-content: start;
+    align-items: center;
     background-color: #1F1F3C;
 }
-
-
 .favorites-button {
-    margin-top: 20px;     
-    padding: 20px 10px;  
-    background-color: #A8AAD2;   
-    color: #1F1F3C;         
-    border: none;         
-    cursor: pointer;      
-    text-align: center; 
-    font-size: 1.3rem; 
-    font-weight: 600; 
+    margin-top: 20px;
+    padding: 20px 10px;
+    background-color: #A8AAD2;
+    color: #1F1F3C;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
 }
-
 main {
     width: 100%;
     flex-direction: column;
 }
-
 .form-top {
     font-size: 1.2rem;
     width: 100%;
@@ -69,15 +60,13 @@ main {
     background-color: #A8AAD2;
     padding-bottom: 20px;
 }
-
 .input-group {
     display: flex;
     align-items: center;
     margin-bottom: 1rem;
-    justify-content: flex-start; 
+    justify-content: flex-start;
 }
-
-.title-label, 
+.title-label,
 .body-label {
     font-size: 2rem;
     margin-top: 2rem;
@@ -86,7 +75,6 @@ main {
     width: 3px;
     flex-shrink: 0;
 }
-
 #title,
 #body {
     border: 3.2px solid #1F1F3C;
@@ -94,18 +82,15 @@ main {
     font-size: 1.2rem;
     flex-grow: 1;
 }
-
 #title {
     height: 3rem;
     padding: 1rem;
 }
-
 #body {
     height: 5rem;
     margin-top: 1rem;
     padding: 1rem;
 }
-
 .add-new-button {
     color: #EAEAF4;
     font-size: 1.6rem;
@@ -113,13 +98,11 @@ main {
     background-color: #1F1F3C;
     cursor: not-allowed;
     height: 4rem;
-    font-weight: 600; 
+    font-weight: 600;
 }
-
 .add-new-button:hover {
     cursor: not-allowed;
 }
-
 .section-bottom {
     width: 100%;
     height: 50vh;
@@ -127,7 +110,6 @@ main {
     text-align: center;
     overflow-y: auto;
 }
-
 .idea-container,
 .ideaContainer {
     display: grid;
@@ -136,7 +118,6 @@ main {
     padding: 20px;
     justify-items: center;
 }
-
 .idea-card {
     line-height: 1.5;
     overflow-y: auto;
@@ -147,29 +128,25 @@ main {
     height: 22rem;
     font-size: 2em;
 }
-
 .idea-box p {
     padding: 10px;
     line-height: 1.6;
 }
-
 .idea-title {
     font-weight: bold;
     font-size: 1em;
     line-height: 1.6;
     margin-top: 20px;
 }
-
 .idea-header {
     background-color: #1F1F3C;
-    color: white;  
+    color: white;
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    align-items: center; 
+    align-items: center;
     padding: 10px;
 }
-
 .close-btn {
     background-color: transparent;
     border: none;
@@ -177,7 +154,6 @@ main {
     font-size: 1.5rem;
     cursor: pointer;
 }
-
 .star-icon {
     fill: white;
     width: 35px;
@@ -185,11 +161,9 @@ main {
     margin-right: auto;
     cursor: pointer;
 }
-
-.favorited .star-icon {
-    fill: rgba(255, 115, 0, 0.955);
+.star-icon.favorited {
+    fill: rgb(243, 92, 22);
 }
-
 /* Dark Purple: #1F1F3C
 Medium Purple: #A8AAD2
 Light Purple: #EAEAF4
