@@ -1,88 +1,119 @@
-/* Dark Purple: #1F1F3C
-Medium Purple: #A8AAD2
-Light Purple: #EAEAF4
-White: #FFFFFF */
-
-* { 
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+@font-face {
+    font-family: 'Poppins-Regular'; 
+    src: url('font-assets/Poppins/Poppins-Black.ttf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins-Bold'; 
+    src: url('font-assets/Poppins/Poppins-Bold.ttf') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
 
 body {
     font-family: 'Poppins', sans-serif;
     display: flex;
 }
 
-main {
-    width: 100%;
-    flex-direction: column
-}
-
 h1 {
     font-size: 3.2em;
-    font-weight: 1000;
+    font-weight: 900;
     color: #EAEAF4;
     margin-top: 1rem;
-    font-weight: bold
 }
+
 aside {
-    float: left;
     width: 20%;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: start; 
+    align-items: center; 
     background-color: #1F1F3C;
+}
+
+
+.favorites-button {
+    margin-top: 20px;     
+    padding: 20px 10px;  
+    background-color: #A8AAD2;   
+    color: #1F1F3C;         
+    border: none;         
+    cursor: pointer;      
+    text-align: center; 
+    font-size: 1.3rem; 
+    font-weight: 600; 
+}
+
+main {
+    width: 100%;
+    flex-direction: column;
 }
 
 .form-top {
     font-size: 1.2rem;
     width: 100%;
     height: 50vh;
-    padding: 3rem 3rem 0 3rem;
+    padding: 3rem;
     display: flex;
     flex-direction: column;
     text-align: center;
     background-color: #A8AAD2;
+    padding-bottom: 20px;
 }
 
-#label {
-    font-size: 2rem;
-    padding: 1rem 0;
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    justify-content: flex-start; 
 }
 
-#title {
-    border: 3.2px solid #1F1F3C;
-    width: 75%;
-    height: 3rem;
-    margin-left: 1.2rem;
-    padding: 1.5rem;
-}
-
-.title-label, .body-label {
+.title-label, 
+.body-label {
     font-size: 2rem;
     margin-top: 2rem;
     font-weight: normal;
+    margin-right: 10px;
+    width: 3px;
+    flex-shrink: 0;
+}
+
+#title,
+#body {
+    border: 3.2px solid #1F1F3C;
+    margin-left: 5.5rem;
+    font-size: 1.2rem;
+    flex-grow: 1;
+}
+
+#title {
+    height: 3rem;
+    padding: 1rem;
 }
 
 #body {
-    border: 3.2px solid #1F1F3C;
-    width: 75%;
     height: 5rem;
-    margin-left: 0.6rem;
+    margin-top: 1rem;
     padding: 1rem;
-    margin: 1rem;
-    
 }
+
 .add-new-button {
-    color: #1F1F3C;
-    font-size: 2.5rem;
-    width: 75%;
-    height: 4.5rem;
-    margin-left: 10.9rem;
-    cursor: p;
-    background-color: #a4a4c0;
+    color: #EAEAF4;
+    font-size: 1.6rem;
+    margin-left: 6.2rem;
+    background-color: #1F1F3C;
+    cursor: not-allowed;
+    height: 4rem;
+    font-weight: 600; 
 }
 
 .add-new-button:hover {
@@ -94,27 +125,39 @@ aside {
     height: 50vh;
     background-color: #EAEAF4;
     text-align: center;
+    overflow-y: auto;
 }
 
- .idea-box {
-    font-size: 20px;
+.idea-container,
+.ideaContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+.idea-card {
+    line-height: 1.5;
     overflow-y: auto;
     border: 2px solid #1F1F3C;
     margin: 10px 0;
     background-color: #FFFFFF;
     width: 20rem;
     height: 22rem;
+    font-size: 2em;
 }
 
 .idea-box p {
-    padding: 10px; 
+    padding: 10px;
+    line-height: 1.6;
 }
 
-.idea-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-    padding: 20px;
+.idea-title {
+    font-weight: bold;
+    font-size: 1em;
+    line-height: 1.6;
+    margin-top: 20px;
 }
 
 .idea-header {
@@ -135,59 +178,16 @@ aside {
     cursor: pointer;
 }
 
-.ideaContainer {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-    padding: 20px;
-    justify-items: center;
-  }
-
-  .favorited .star-icon {
-    fill: rgba(255, 115, 0, 0.955);
-    width: 25px;
-    height: 25px;
-    margin-right: auto;
-}
-
 .star-icon {
     fill: white;
     width: 35px;
     height: 35px;
     margin-right: auto;
-}
-
-.star-icon:hover {
     cursor: pointer;
 }
-  .favorited .star-icon {
+
+.favorited .star-icon {
     fill: rgba(255, 115, 0, 0.955);
-    width: 35px;
-    height: 35px;
-    margin-right: auto;
-}
-
-.favorited .star-icon:hover {
-    cursor: pointer;
-}
-
-
-.idea-title {
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: 'Poppins-Regular'; 
-    src: url('font-assets/Poppins/Poppins-Black.ttf') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Poppins-Bold'; 
-    src: url('font-assets/Poppins/Poppins-Bold.ttf') format('woff');
-    font-weight: bold;
-    font-style: normal;
 }
 
 /* Dark Purple: #1F1F3C
