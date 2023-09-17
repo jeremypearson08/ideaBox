@@ -42,17 +42,23 @@
     function displayCards(ideas) {
         ideaContainer.innerHTML = '';
         ideas.forEach(function(idea) {
-            ideaContainer.innerHTML += `<article class="idea-card">
-                <div class="idea-header">
-                    <svg class="${idea.isStarred ? 'favorited' : ''} star-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 5 27 24">
-                        <path d="M3.488 13.184l6.272 6.112-1.472 8.608 7.712-4.064 7.712 4.064-1.472-8.608 6.272-6.112-8.64-1.248-3.872-7.808-3.872 7.808z"/>
-                    </svg>
-                    <button class="close-btn">&#9587;</button>
+            ideaContainer.innerHTML += 
+            `<article class='idea-card'>
+                <div class='idea-header'>
+                    <img class='star-icon' src='${starIconView(idea)}'</img>
+                    <button class='close-button'>&#9587;</button>
                 </div>
-                <p class="idea-title">${idea.title}</p>
+                <p class='idea-title'>${idea.title}</p>
                 <p>${idea.body}</p>
             </article>`;
         });
+    }
+
+    function starIconView(idea) {
+        if (idea.isStarred) {
+            return 'assets/star-active.svg';
+        }
+        return 'assets/star.svg';
     }
 
     function cardInteractions(e) {
@@ -60,7 +66,7 @@
       if (targetElement.tagName.toLowerCase() === 'path') {
           targetElement = targetElement.parentElement;
       }
-      if (targetElement.classList.contains('close-btn')) {
+      if (targetElement.classList.contains('close-button')) {
           deleteCard(e);
       } else if (targetElement.classList.contains('star-icon')) {
           toggleStar(e);
